@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Application permettant de lister les vidéos présente à des endroits donnés.",
   "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
   "devDependencies": {
     "chai": "^2.2.0",
     "grunt": "^0.4.5",
