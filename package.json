@@ -3,18 +3,18 @@
   "version": "1.0.0",
   "description": "Application permettant de lister les vidéos présente à des endroits donnés.",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
   "devDependencies": {
     "chai": "^2.2.0",
     "grunt": "^0.4.5",
-    "grunt-contrib-jshint": "^0.11.1",
+    "grunt-cli": "^0.1.13",
+    "grunt-shell": "^1.1.2",
     "istanbul": "^0.3.13",
+    "jshint": "^2.6.3",
+	    "load-grunt-tasks": "^3.1.0",
     "mocha": "^2.2.4"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "./node_modules/.bin/grunt test"
   },
   "repository": {
     "type": "git",
