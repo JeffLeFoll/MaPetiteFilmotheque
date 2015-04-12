@@ -1,4 +1,4 @@
-# MaPetiteFilmotheque 
+# MaPetiteFilmotheque  [![Build Status](https://travis-ci.org/JeffLeFoll/MaPetiteFilmotheque.svg)](https://travis-ci.org/JeffLeFoll/MaPetiteFilmotheque)
 Pour découvrir node.js une petite appli "Filmothèque" dans l'idéal compatible avec le navigateur de la xbox 360.
 
 
