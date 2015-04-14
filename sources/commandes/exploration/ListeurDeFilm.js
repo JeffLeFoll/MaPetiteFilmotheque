@@ -1,8 +1,17 @@
 'use strict';
 
-function listerFilms(){
-    return 3;
+var AccèsAuDisque = require('fs');
+
+function ListeurDeFilm () {
+    
+     this.listerFilms = function (chemin) {
+       var fichiers = AccèsAuDisque.readdirSync(chemin);
+       
+       return fichiers;
+    };
+    
 }
 
 
-module.exports = listerFilms;
+
+module.exports = ListeurDeFilm;
