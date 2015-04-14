@@ -29,3 +29,6 @@ node_modules
 
 # IDEA files
 .idea
+
+# Cloud 9 files
+.c9
