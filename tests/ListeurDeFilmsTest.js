@@ -1,8 +1,7 @@
 'use strict';
 
 require('chai').should();
-var ListeurDeFilm = require('../../../sources/commandes/exploration/ListeurDeFilm');
-
+var ListeurDeFilm = require('../sources/ListeurDeFilm');
 var indicateurFinDeTest;
 
 describe('Listeur De Film', function () {
