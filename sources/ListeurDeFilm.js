@@ -4,7 +4,7 @@ var AccèsAuDisque = require('fs');
 
 function ListeurDeFilm () {
     
-    var ensembleDeFilms = new Array;
+    var ensembleDeFilms = [];
     var nombreDeDossiersALister;
     var nombreDeDossierListé;
     var retourListerContenuDossier;
@@ -13,11 +13,10 @@ function ListeurDeFilm () {
         retourListerContenuDossier = fonctionRetour;
         nombreDeDossiersALister = chemins.length;
         nombreDeDossierListé = 0;
-        
+
         chemins.forEach(function (chemin) {
             AccèsAuDisque.readdir(chemin, listerContenuDossier);
          });
-        
     };
     
     function listerContenuDossier (err, fichiers) {
