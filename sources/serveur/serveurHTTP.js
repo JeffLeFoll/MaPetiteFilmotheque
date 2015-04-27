@@ -17,15 +17,16 @@ function traiterRequeteHttp (req, res) {
 
     var fonctionDemandee = url.parse(req.url).pathname;
 
-    if (fonctionDemandee === '/listerFilm'){
+    if (fonctionDemandee === '/listerFilms'){
         var Listeur = new ListeurDeFilm();
 
-        Listeur.listerFilms(['E:\\Film'], function (films){
-            var retour = JSON.stringify(films);
+        var films = Listeur.listerFilms(['./tests/ressources/', './tests/ressources/']);
 
-            res.write(retour);
-            res.end();
-        });
+        var retour = JSON.stringify(films);
+
+        res.write(retour);
+        res.end();
+
         
     } else {
         res.write('Fonction non implémentée');

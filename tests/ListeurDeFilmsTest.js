@@ -2,29 +2,25 @@
 
 require('chai').should();
 var ListeurDeFilm = require('../sources/ListeurDeFilm');
-var indicateurFinDeTest;
 
-describe('Listeur De Film', function () {
+describe('Listeur De Films', function () {
     
-        it('doit retourner un object contenant les noms des deux fichiers x 2 présent dans le répertoir tests/ressources', function (done) {
-            indicateurFinDeTest = done;
-            var chemins = new Array('./tests/ressources/', './tests/ressources/');
+        it('doit retourner un tableau contenant 2 objets DossierDeFilms', function () {
+            var chemins = ['./tests/ressources/', './tests/ressources/'];
             var Listeur = new ListeurDeFilm();
             
-            Listeur.listerFilms(chemins, traiterRésultat);
-
+            var filmsDisponible = Listeur.listerFilms(chemins);
+            
+            filmsDisponible.should.have.length(2);
+            vérifierDossier(filmsDisponible[0]);
+            vérifierDossier(filmsDisponible[1]);
         });
 });
 
-function traiterRésultat(films){
-    var filmsDisponible = films.toString().split(',');
 
-    filmsDisponible.should.have.length(4);
-    filmsDisponible[0].should.equal('clip.mkv');
-    filmsDisponible[1].should.equal('film1.avi');
-    filmsDisponible[2].should.equal('clip.mkv');
-    filmsDisponible[3].should.equal('film1.avi');
-
-    indicateurFinDeTest();
- }
- 
+function vérifierDossier(dossier){
+    dossier.listeDeFilms.should.have.length(2);
+    dossier.listeDeFilms[0].should.equal('clip.mkv');
+    dossier.listeDeFilms[1].should.equal('film1.avi');
+    dossier.cheminDuDossier.should.equal('./tests/ressources/');
+}

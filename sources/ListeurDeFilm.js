@@ -1,41 +1,28 @@
 'use strict';
 
 var AccèsAuDisque = require('fs');
+var DossierDeFilms = require('./DossierDeFilms');
 
 function ListeurDeFilm () {
     
     var ensembleDeFilms = [];
-    var nombreDeDossiersALister;
-    var nombreDeDossierListé;
-    var retourListerContenuDossier;
-    
-     this.listerFilms = function (chemins, fonctionRetour) {
-        retourListerContenuDossier = fonctionRetour;
-        nombreDeDossiersALister = chemins.length;
-        nombreDeDossierListé = 0;
 
-        chemins.forEach(function (chemin) {
-            AccèsAuDisque.readdir(chemin, listerContenuDossier);
-         });
+     this.listerFilms = function (chemins) {
+
+        chemins.forEach(traiterDossier);
+        
+        return ensembleDeFilms;
     };
     
-    function listerContenuDossier (err, fichiers) {
-        if (err) return console.error(err);
+    function traiterDossier(chemin) {
+        var dossier = new DossierDeFilms();
+        dossier.cheminDuDossier = chemin;
         
-        nombreDeDossierListé++;
-        
-        fichiers.forEach(function (fichier) {
-            ensembleDeFilms.push(fichier);
-         });
-
-        if(nombreDeDossiersALister == nombreDeDossierListé){
-            retourListerContenuDossier(ensembleDeFilms);
-        }
-         
+        dossier.listeDeFilms = AccèsAuDisque.readdirSync(chemin);
+                
+        ensembleDeFilms.push(dossier);
     }
-    
+
 }
-
-
 
 module.exports = ListeurDeFilm;
